@@ -1,0 +1,27 @@
+---
+// src/layouts/MainLayout.astro
+const { title, description } = Astro.props;
+import LandingHeader from '../components/LandingHeader.astro';
+import LandingFooter from '../components/LandingFooter.astro';
+import '../styles/global.css';
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title} | Zaidly Picks</title>
+		<meta name="description" content={description} />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen font-['Inter',sans-serif] antialiased">
+		
+		<LandingHeader />
+
+		<main class="flex-grow w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+			<slot />
+		</main>
+
+		<LandingFooter />
+		
+	</body>
+</html>

@@ -1,11 +1,21 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import MainLayout from '../layouts/MainLayout.astro';
+const products = [
+  { name: "Mitolyn", desc: "Advanced mitochondrial support for natural energy.", link: "/mitolyn", tag: "Health" }
+];
 ---
-
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout title="Top Recommendations" description="Best products curated by Zaidly Picks.">
+  <div class="py-16 px-4 max-w-6xl mx-auto">
+    <h1 class="text-4xl font-bold mb-8 text-center">Our Top Picks</h1>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {products.map(p => (
+        <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition">
+          <span class="text-blue-500 text-xs font-bold uppercase">{p.tag}</span>
+          <h3 class="text-xl font-bold mt-2">{p.name}</h3>
+          <p class="text-gray-600 text-sm my-4">{p.desc}</p>
+          <a href={p.link} class="text-blue-600 font-bold">Learn More →</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</MainLayout>

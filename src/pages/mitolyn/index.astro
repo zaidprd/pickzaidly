@@ -1,0 +1,167 @@
+---
+// src/pages/mitolyn/index.astro
+import LandingLayout from '../../layouts/LandingLayout.astro';
+import LandingHeader from '../../components/LandingHeader.astro';
+import { Image } from 'astro:assets';
+import productImg from '../../assets/mitolyn.png';
+
+const affLink = "https://mitolyn.com/welcome/?hop=zzzzz";
+---
+
+<LandingLayout title="Mitolyn - Official Website">
+  
+  <LandingHeader logoFirst="MITO" logoSecond="LYN" />
+
+  <section class="bg-[#050B1F] text-white py-20 md:py-32 overflow-hidden relative italic">
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/20 blur-[120px] rounded-full -translate-y-1/2"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10 italic">
+      <div class="relative order-2 lg:order-1 flex justify-center italic">
+        <div class="relative group italic">
+          <div class="absolute inset-0 bg-gradient-to-tr from-pink-500 via-yellow-400 to-cyan-400 blur-[80px] opacity-30 rounded-full italic"></div>
+          
+          <div class="absolute -top-5 -left-5 bg-white text-slate-900 p-4 rounded-2xl shadow-2xl max-w-xs z-20 hidden lg:block animate-float italic">
+            <div class="flex items-center gap-2 mb-2 italic">
+              <div class="w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full italic"></div>
+              <div class="italic">
+                <div class="flex text-yellow-400 text-xs italic">★★★★★</div>
+                <p class="text-[10px] font-black italic">Helen P.</p>
+              </div>
+            </div>
+            <p class="text-xs italic">"This really works – energy's up, lbs down!"</p>
+          </div>
+
+          <Image 
+            src={productImg} 
+            alt="Mitolyn Bottle" 
+            width={500}
+            class="relative z-10 drop-shadow-[0_50px_80px_rgba(0,0,0,0.4)] transform hover:scale-105 transition-all duration-500 font-bold italic"
+          />
+        </div>
+      </div>
+
+      <div class="text-center lg:text-left order-1 lg:order-2 italic">
+        <h1 class="text-5xl md:text-8xl font-black leading-[0.95] mb-8 tracking-tighter uppercase italic">
+          Unlock Your<br/>
+          <span class="bg-gradient-to-r from-[#FF4DAD] via-[#FFD700] to-[#00E5FF] bg-clip-text text-transparent italic">Metabolic Power</span>
+        </h1>
+        <p class="text-2xl md:text-3xl font-medium mb-10 opacity-90 italic">
+          Burn More Calories & Feel Great With <span class="font-black text-white italic">Mitolyn</span>.
+        </p>
+        <a href={affLink} target="_blank" rel="sponsored" class="inline-flex items-center gap-4 bg-[#F05A2D] hover:bg-[#d64a20] text-white font-black py-7 px-14 rounded-full text-2xl shadow-2xl transition-all transform hover:scale-105 active:scale-95 group italic">
+          ORDER MITOLYN NOW
+          <svg class="w-8 h-8 group-hover:translate-x-1 transition-transform italic" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="4" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white border-b border-slate-100 italic">
+    <div class="max-w-4xl mx-auto px-6 text-center italic">
+      <p class="text-blue-600 font-bold text-lg mb-2 italic">January 2026 - New Scientific Discovery</p>
+      <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-8 tracking-tighter uppercase italic">Harvard scientists discover shocking New Cause of slow metabolism...</h2>
+      <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-[3rem] p-10 text-left border border-blue-100 italic">
+        <p class="text-xl text-slate-700 leading-relaxed mb-8 italic">
+          Found just one common factor in every overweight person: <strong class="text-blue-600 italic">low mitochondria levels</strong>. Person who was slim, toned and has smooth young skin: <strong class="text-blue-600 italic">high mitochondria levels</strong>.
+        </p>
+        <div class="bg-white rounded-2xl p-8 mb-8 flex flex-col items-center border border-blue-100 italic">
+          <div class="text-7xl mb-4 italic">⚡</div>
+          <p class="font-black text-slate-900 text-center uppercase italic">Mitochondria burn fat and fuel every part of our body. The more you have, the more fat you burn!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-slate-50 italic">
+    <div class="max-w-6xl mx-auto px-6 italic">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-16 uppercase italic">Inside every Mitolyn capsule:</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 italic">
+        <div class="bg-white p-8 rounded-[3rem] shadow-xl border border-blue-100 hover:scale-105 transition-all italic text-center">
+          <div class="w-full aspect-square bg-purple-100 rounded-3xl mb-6 flex items-center justify-center text-6xl italic">🫐</div>
+          <h3 class="text-2xl font-black mb-3 text-purple-600 italic">Maqui Berry</h3>
+          <p class="text-sm text-slate-600 mb-6 italic">Exotic purple fruit packed with antioxidants.</p>
+          <ul class="space-y-3 text-sm font-bold italic text-left">
+            <li class="flex items-center gap-2 italic"><span class="text-green-500 italic">✓</span> Promotes mitochondria</li>
+            <li class="flex items-center gap-2 italic"><span class="text-green-500 italic">✓</span> Heart & Cholesterol support</li>
+          </ul>
+        </div>
+        <div class="bg-white p-8 rounded-[3rem] shadow-xl border border-blue-100 hover:scale-105 transition-all italic text-center">
+          <div class="w-full aspect-square bg-orange-100 rounded-3xl mb-6 flex items-center justify-center text-6xl italic">🌿</div>
+          <h3 class="text-2xl font-black mb-3 text-orange-600 italic">Rhodiola</h3>
+          <p class="text-sm text-slate-600 mb-6 italic">Adaptogen bursting with polyphenols.</p>
+          <ul class="space-y-3 text-sm font-bold italic text-left">
+            <li class="flex items-center gap-2 italic"><span class="text-green-500 italic">✓</span> Promotes mitochondria</li>
+            <li class="flex items-center gap-2 italic"><span class="text-green-500 italic">✓</span> Enhances daily vitality</li>
+          </ul>
+        </div>
+        <div class="bg-white p-8 rounded-[3rem] shadow-xl border border-blue-100 hover:scale-105 transition-all italic text-center">
+          <div class="w-full aspect-square bg-amber-100 rounded-3xl mb-6 flex items-center justify-center text-6xl italic">🍫</div>
+          <h3 class="text-2xl font-black mb-3 text-amber-800 italic">Theobroma Cacao</h3>
+          <p class="text-sm text-slate-600 mb-6 italic">Tropical superfood overflowing with epicatechin.</p>
+          <ul class="space-y-3 text-sm font-bold italic text-left">
+            <li class="flex items-center gap-2 italic"><span class="text-green-500 italic">✓</span> Promotes mitochondria</li>
+            <li class="flex items-center gap-2 italic"><span class="text-green-500 italic">✓</span> Healthy blood pressure</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white text-center italic">
+    <div class="max-w-4xl mx-auto px-6 italic">
+      <div class="bg-gradient-to-br from-slate-50 to-blue-50 p-12 rounded-[4rem] border-4 border-dashed border-blue-200 relative overflow-hidden italic">
+        <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-8 leading-tight uppercase italic">Ready to Re-Activate Your <br/> <span class="bg-[#F05A2D] text-white px-4 italic">Metabolic Engine?</span></h2>
+        
+        <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto font-bold italic">
+          Join thousands who have already transformed their health with Mitolyn.
+        </p>
+
+        <a href={affLink} target="_blank" rel="sponsored" class="inline-flex items-center gap-4 bg-[#F05A2D] hover:bg-[#d64a20] text-white font-black py-7 px-14 rounded-2xl text-2xl md:text-4xl shadow-[0_25px_50px_rgba(240,90,45,0.35)] transition-all transform hover:-translate-y-2 active:scale-95 group italic">
+          ORDER NOW →
+          <div class="bg-white rounded-full p-1 group-hover:translate-x-2 transition-transform italic">
+            <svg class="w-6 h-6 text-[#F05A2D] italic" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="4" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white italic">
+    <div class="max-w-5xl mx-auto px-6 text-center italic">
+      <h2 class="text-5xl font-black mb-16 uppercase tracking-tighter italic">90-Day Money Back Guarantee</h2>
+      <div class="flex flex-col md:flex-row items-center gap-12 bg-blue-50 p-12 rounded-[4rem] border border-blue-100 italic">
+        <div class="w-48 h-48 border-[12px] border-blue-600 rounded-full flex flex-col items-center justify-center text-blue-600 font-black shrink-0 relative italic">
+          <span class="text-6xl italic">90</span>
+          <span class="text-xl uppercase italic">Days</span>
+        </div>
+        <p class="text-slate-700 leading-relaxed text-lg italic font-medium">
+          If you are not astonished how fast your deep stubborn fat stores <strong class="text-slate-900 italic">melt</strong> away into pure energy, then let us know and we'll refund every single penny. No questions asked.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-slate-950 text-white italic overflow-hidden relative">
+    <div class="max-w-6xl mx-auto px-6 text-center relative z-10 italic">
+      <h2 class="text-4xl md:text-6xl font-black mb-16 italic uppercase tracking-tighter">Order 6 or 3 Bottles & Get <span class="text-cyan-400 underline italic">2 FREE Bonuses!</span></h2>
+      <div class="grid md:grid-cols-2 gap-12 italic">
+        <div class="bg-white/5 backdrop-blur-lg border border-white/10 p-10 rounded-[3rem] italic">
+          <div class="bg-gradient-to-br from-purple-500 to-pink-500 aspect-[3/4] rounded-2xl mb-8 flex items-center justify-center text-5xl italic font-bold">📖</div>
+          <h3 class="font-black text-2xl text-pink-400 mb-4 italic uppercase">Bonus #1: 1-Day Kickstart Detox</h3>
+          <p class="text-slate-400 text-sm italic">Flush your organs and kickstart your journey with 20 bizarre tea recipes.</p>
+        </div>
+        <div class="bg-white/5 backdrop-blur-lg border border-white/10 p-10 rounded-[3rem] italic">
+          <div class="bg-gradient-to-br from-blue-500 to-cyan-500 aspect-[3/4] rounded-2xl mb-8 flex items-center justify-center text-5xl italic font-bold">🧘</div>
+          <h3 class="font-black text-2xl text-cyan-400 mb-4 italic uppercase">Bonus #2: Renew You</h3>
+          <p class="text-slate-400 text-sm italic">Instantly relieve stress, calm your mind, and boost confidence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</LandingLayout>
+
+<style>
+  @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+  .animate-float { animation: float 3s ease-in-out infinite; }
+</style>
