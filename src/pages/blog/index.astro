@@ -1,6 +1,8 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
+// IMPORT PENTING: Untuk memperbaiki masalah [object Object] pada gambar
+import { Image } from 'astro:assets';
 
 const allPosts = await getCollection('blog');
 const sortedPosts = allPosts.sort((a, b) => 
@@ -12,60 +14,77 @@ const regularPosts = sortedPosts.filter(post => !post.data.featured);
 ---
 
 <MainLayout 
-  title="Blog" 
-  description="Tips, tutorial, dan insights seputar digital marketing, Meta Ads, dan bisnis online.">
+  title="Blog & Articles" 
+  description="Tips, tutorial, dan insights seputar digital marketing, Meta Ads, dan bisnis online untuk memaksimalkan profit Anda.">
   
   <div class="py-16 px-4">
     <div class="max-w-6xl mx-auto">
       
-      <!-- Header -->
-      <div class="text-center mb-16">
-        <h1 class="text-5xl md:text-6xl font-black text-slate-900 mb-4">
-          Blog & <span class="text-cyan-600">Articles</span>
+      <div class="text-center mb-20 relative">
+        <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 bg-cyan-100/50 rounded-full blur-3xl -z-10"></div>
+        
+        <h1 class="text-6xl md:text-7xl font-black text-slate-900 mb-6 tracking-tighter leading-tight">
+          The <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-700">Zaidly</span> Library
         </h1>
-        <p class="text-xl text-slate-600 max-w-2xl mx-auto">
-          Tips, tutorial, dan insights untuk memaksimalkan bisnis online Anda
-        </p>
+        
+        <div class="max-w-3xl mx-auto space-y-4">
+          <p class="text-2xl md:text-3xl font-bold text-slate-800 leading-snug">
+            Strategi Iklan & <span class="italic text-cyan-600">Growth Marketing</span> untuk Bisnis Anda
+          </p>
+          <p class="text-lg text-slate-600 leading-relaxed font-medium">
+            Kumpulan panduan teknis, studi kasus Meta Ads, dan cara cerdas mengelola digital marketing yang sudah teruji menghasilkan profit.
+          </p>
+        </div>
+        
+        <div class="mt-10 flex justify-center items-center gap-4">
+          <div class="h-px w-12 bg-slate-200"></div>
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Wawasan Terbaru 2026</span>
+          <div class="h-px w-12 bg-slate-200"></div>
+        </div>
       </div>
 
-      <!-- Featured Posts -->
       {featuredPosts.length > 0 && (
-        <section class="mb-16">
-          <h2 class="text-2xl font-bold text-slate-900 mb-6">Featured Articles</h2>
-          <div class="grid md:grid-cols-2 gap-8">
+        <section class="mb-20">
+          <h2 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+            <span class="bg-cyan-600 w-8 h-1 rounded-full"></span>
+            Featured Articles
+          </h2>
+          <div class="grid md:grid-cols-2 gap-10">
             {featuredPosts.map(post => (
               <a 
                 href={`/${post.slug}`}
-                class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all overflow-hidden border border-slate-100">
-                <div class="aspect-video bg-gradient-to-br from-cyan-500 to-blue-600 relative overflow-hidden">
-                  <img 
+                class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-100 flex flex-col">
+                <div class="aspect-video relative overflow-hidden">
+                  <Image 
                     src={post.data.image.url} 
                     alt={post.data.image.alt}
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    width={800}
+                    height={450}
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div class="absolute top-4 left-4">
-                    <span class="bg-yellow-400 text-slate-900 text-xs font-bold px-3 py-1 rounded-full">
+                  <div class="absolute top-6 left-6">
+                    <span class="bg-yellow-400 text-slate-900 text-[10px] uppercase font-black px-4 py-1.5 rounded-full shadow-lg">
                       ⭐ Featured
                     </span>
                   </div>
                 </div>
-                <div class="p-6">
-                  <div class="flex flex-wrap gap-2 mb-3">
-                    {post.data.tags.slice(0, 2).map(tag => (
-                      <span class="bg-cyan-100 text-cyan-700 text-xs font-semibold px-3 py-1 rounded-full">
+                <div class="p-8 flex-grow flex flex-col">
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    {post.data.tags.slice(0, 3).map(tag => (
+                      <span class="text-[10px] uppercase font-bold tracking-wider text-cyan-600 bg-cyan-50 px-3 py-1 rounded-md">
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <h3 class="text-2xl font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">
+                  <h3 class="text-3xl font-bold text-slate-900 mb-4 group-hover:text-cyan-600 transition-colors leading-tight">
                     {post.data.title}
                   </h3>
-                  <p class="text-slate-600 mb-4 line-clamp-2">
+                  <p class="text-slate-600 mb-6 line-clamp-3 leading-relaxed">
                     {post.data.description}
                   </p>
-                  <div class="flex items-center justify-between text-sm text-slate-500">
-                    <span>{post.data.author}</span>
-                    <time datetime={post.data.pubDate.toISOString()}>
+                  <div class="mt-auto pt-6 border-t border-slate-50 flex items-center justify-between text-sm">
+                    <span class="font-bold text-slate-900">{post.data.author}</span>
+                    <time class="text-slate-400 font-medium uppercase tracking-tighter">
                       {new Intl.DateTimeFormat('id-ID', { dateStyle: 'medium' }).format(post.data.pubDate)}
                     </time>
                   </div>
@@ -76,37 +95,41 @@ const regularPosts = sortedPosts.filter(post => !post.data.featured);
         </section>
       )}
 
-      <!-- All Posts -->
       <section>
-        <h2 class="text-2xl font-bold text-slate-900 mb-6">All Articles</h2>
+        <h2 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+          <span class="bg-slate-300 w-8 h-1 rounded-full"></span>
+          All Library Articles
+        </h2>
         <div class="grid md:grid-cols-3 gap-8">
           {regularPosts.map(post => (
             <a 
               href={`/${post.slug}`}
-              class="group bg-white rounded-xl shadow hover:shadow-xl transition-all overflow-hidden border border-slate-100">
-              <div class="aspect-video bg-gradient-to-br from-slate-200 to-slate-300 relative overflow-hidden">
-                <img 
+              class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100">
+              <div class="aspect-video relative overflow-hidden">
+                <Image 
                   src={post.data.image.url} 
                   alt={post.data.image.alt}
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  width={600}
+                  height={337}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
               <div class="p-6">
-                <div class="flex flex-wrap gap-2 mb-3">
-                  {post.data.tags.slice(0, 2).map(tag => (
-                    <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2 py-1 rounded">
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {post.data.tags.slice(0, 1).map(tag => (
+                    <span class="text-[10px] uppercase font-bold text-slate-400">
                       {tag}
                     </span>
                   ))}
                 </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors line-clamp-2">
+                <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-cyan-600 transition-colors line-clamp-2 leading-snug">
                   {post.data.title}
                 </h3>
-                <p class="text-slate-600 text-sm mb-4 line-clamp-2">
+                <p class="text-slate-600 text-sm mb-6 line-clamp-2">
                   {post.data.description}
                 </p>
-                <div class="text-xs text-slate-500">
+                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                   {new Intl.DateTimeFormat('id-ID', { dateStyle: 'medium' }).format(post.data.pubDate)}
                 </div>
               </div>
