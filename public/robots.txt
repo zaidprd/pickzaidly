@@ -1,0 +1,10 @@
+#
+User-agent: *
+Allow: /
+
+# Mencegah indeks halaman yang tidak perlu
+Disallow: /admin/
+Disallow: /private/
+
+# Link ke peta situs Anda (Sangat Penting untuk Indeks)
+Sitemap: https://picks.zaidly.com/sitemap-index.xml

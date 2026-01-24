@@ -1,37 +1,18 @@
 ---
 // src/components/LandingHeader.astro
-const { logoFirst, logoSecond } = Astro.props;
+const waLink = "https://wa.me/628xxxxxxxxxx?text=Saya+ingin+daftar+Kelas+Meta+Ads+Ramadhan+2026";
+
 ---
-<nav class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100 shadow-sm">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+<nav class="bg-slate-900/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
     
-    <a href="/" class="group flex items-center transition-opacity hover:opacity-80">
-      <span class="text-2xl md:text-3xl font-black tracking-tighter uppercase italic flex items-center">
-        <span class="bg-gradient-to-r from-[#FF4DAD] via-[#FFD700] to-[#00E5FF] bg-clip-text text-transparent">
-          {logoFirst || 'MITO'}
-        </span>
-        <span class="bg-gradient-to-r from-[#00E5FF] to-[#2563EB] bg-clip-text text-transparent ml-1">
-          {logoSecond || 'LYN'}
-        </span>
-      </span>
+    <a href="/" class="text-xl md:text-2xl font-bold">
+      <span class="text-yellow-400">Meta Ads</span>
+      <span class="text-cyan-400"> Ramadhan</span>
     </a>
 
-    <div class="flex items-center gap-4 md:gap-8">
-      <div class="hidden md:flex items-center gap-6 text-[11px] font-bold uppercase tracking-widest text-slate-500">
-        <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
-        <a href="#ingredients" class="hover:text-blue-600 transition-colors">Ingredients</a>
-        <a href="#faq" class="hover:text-blue-600 transition-colors">FAQ</a>
-      </div>
-
-      <a href="/order" class="bg-[#F05A2D] text-white px-5 py-2.5 rounded-lg font-bold text-sm flex items-center gap-2 hover:bg-[#d64a20] transition-all shadow-md active:scale-95">
-        Order Now
-        <div class="bg-white rounded-full p-0.5">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-[#F05A2D]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </div>
-      </a>
-    </div>
-
+    <a href={waLink} class="bg-green-500 hover:bg-green-600 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all shadow-lg hover:shadow-xl">
+      💬 Daftar Sekarang
+    </a>
   </div>
 </nav>

@@ -1,21 +1,195 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+
 const products = [
-  { name: "Mitolyn", desc: "Advanced mitochondrial support for natural energy.", link: "/mitolyn", tag: "Health" }
+  { 
+    name: "Mitolyn", 
+    desc: "Advanced mitochondrial support for natural energy and metabolism boost.", 
+    link: "/mitolyn", 
+    tag: "Health & Wellness",
+    emoji: "⚡",
+    color: "from-purple-500 to-pink-500",
+    lang: "English"
+  },
+  { 
+    name: "Kelas Meta Ads Ramadhan", 
+    desc: "Kuasai Facebook & Instagram Ads sebelum momen emas Ramadhan 2026.", 
+    link: "/meta-ads", 
+    tag: "Digital Marketing",
+    emoji: "🎯",
+    color: "from-cyan-500 to-blue-500",
+    lang: "Bahasa Indonesia"
+  }
 ];
 ---
-<MainLayout title="Top Recommendations" description="Best products curated by Zaidly Picks.">
-  <div class="py-16 px-4 max-w-6xl mx-auto">
-    <h1 class="text-4xl font-bold mb-8 text-center">Our Top Picks</h1>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {products.map(p => (
-        <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition">
-          <span class="text-blue-500 text-xs font-bold uppercase">{p.tag}</span>
-          <h3 class="text-xl font-bold mt-2">{p.name}</h3>
-          <p class="text-gray-600 text-sm my-4">{p.desc}</p>
-          <a href={p.link} class="text-blue-600 font-bold">Learn More →</a>
+
+<MainLayout title="Zaidly Picks - Top Recommendations" description="Curated landing pages for top products and services.">
+  
+  <!-- Hero Section -->
+  <div class="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white py-20 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <div class="inline-block bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full text-sm font-bold mb-6 border border-white/20">
+        ✨ Curated by Zaidly
+      </div>
+      <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+        Discover Our<br/>
+        <span class="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+          Top Picks
+        </span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8">
+        Hand-picked products and services that deliver real results. Each one carefully reviewed and recommended.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 text-sm">
+        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+          <span class="text-green-400">✓</span>
+          <span>Quality Verified</span>
         </div>
-      ))}
+        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+          <span class="text-green-400">✓</span>
+          <span>Trusted Reviews</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+          <span class="text-green-400">✓</span>
+          <span>Real Results</span>
+        </div>
+      </div>
     </div>
   </div>
+
+  <!-- Products Grid -->
+  <div class="py-20 px-4 bg-slate-50">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          Featured Recommendations
+        </h2>
+        <p class="text-gray-600 text-lg">
+          {products.length} carefully selected products and services
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+        {products.map(p => (
+          <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-transparent hover:scale-105">
+            
+            {/* Card Header with Gradient */}
+            <div class={`bg-gradient-to-r ${p.color} p-8 relative overflow-hidden`}>
+              <div class="absolute top-0 right-0 text-9xl opacity-10">
+                {p.emoji}
+              </div>
+              <div class="relative z-10">
+                <span class="inline-block bg-white/20 backdrop-blur-sm text-white text-xs font-bold uppercase px-3 py-1 rounded-full mb-3">
+                  {p.tag}
+                </span>
+                <h3 class="text-3xl font-black text-white mb-2">
+                  {p.name}
+                </h3>
+                <div class="flex items-center gap-2 text-white/80 text-sm">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>{p.lang}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card Body */}
+            <div class="p-8">
+              <p class="text-gray-600 text-base leading-relaxed mb-6">
+                {p.desc}
+              </p>
+
+              {/* Features List */}
+              <div class="space-y-2 mb-6">
+                <div class="flex items-center gap-2 text-sm text-gray-700">
+                  <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="font-medium">Professional Landing Page</span>
+                </div>
+                <div class="flex items-center gap-2 text-sm text-gray-700">
+                  <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="font-medium">Optimized for Conversion</span>
+                </div>
+                <div class="flex items-center gap-2 text-sm text-gray-700">
+                  <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="font-medium">Mobile Responsive</span>
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <a 
+                href={p.link} 
+                class={`block text-center bg-gradient-to-r ${p.color} hover:opacity-90 text-white font-bold py-4 px-8 rounded-xl transition-all transform group-hover:translate-x-1 shadow-lg`}>
+                View Landing Page 
+                <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </div>
+
+            {/* Badge */}
+            <div class="px-8 pb-6">
+              <div class="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg p-3 flex items-center gap-2">
+                <span class="text-2xl">{p.emoji}</span>
+                <span class="text-xs text-gray-700">
+                  <strong class="text-yellow-700">Featured</strong> - Recommended by Zaidly
+                </span>
+              </div>
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+      {/* Coming Soon Teaser */}
+      <div class="mt-16 text-center">
+        <div class="inline-block bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+          <div class="text-5xl mb-4">🚀</div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-2">More Coming Soon</h3>
+          <p class="text-gray-600 mb-4">
+            We're constantly adding new products and services to our collection.
+          </p>
+          <div class="flex justify-center gap-2">
+            <div class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+            <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
+            <div class="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer CTA -->
+  <div class="bg-gradient-to-r from-slate-900 to-blue-900 text-white py-16 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Looking for Something Specific?
+      </h2>
+      <p class="text-xl text-gray-300 mb-8">
+        Have questions about our recommendations? Get in touch.
+      </p>
+      <a 
+        href="/contact" 
+        class="inline-block bg-white text-slate-900 hover:bg-gray-100 font-bold py-4 px-10 rounded-full transition-all transform hover:scale-105 shadow-xl">
+        Contact Us
+      </a>
+    </div>
+  </div>
+
 </MainLayout>
+
+<style>
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  .animate-pulse {
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>

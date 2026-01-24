@@ -1,0 +1,121 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort((a, b) => 
+  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const featuredPosts = sortedPosts.filter(post => post.data.featured);
+const regularPosts = sortedPosts.filter(post => !post.data.featured);
+---
+
+<MainLayout 
+  title="Blog" 
+  description="Tips, tutorial, dan insights seputar digital marketing, Meta Ads, dan bisnis online.">
+  
+  <div class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl font-black text-slate-900 mb-4">
+          Blog & <span class="text-cyan-600">Articles</span>
+        </h1>
+        <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+          Tips, tutorial, dan insights untuk memaksimalkan bisnis online Anda
+        </p>
+      </div>
+
+      <!-- Featured Posts -->
+      {featuredPosts.length > 0 && (
+        <section class="mb-16">
+          <h2 class="text-2xl font-bold text-slate-900 mb-6">Featured Articles</h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            {featuredPosts.map(post => (
+              <a 
+                href={`/${post.slug}`}
+                class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all overflow-hidden border border-slate-100">
+                <div class="aspect-video bg-gradient-to-br from-cyan-500 to-blue-600 relative overflow-hidden">
+                  <img 
+                    src={post.data.image.url} 
+                    alt={post.data.image.alt}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div class="absolute top-4 left-4">
+                    <span class="bg-yellow-400 text-slate-900 text-xs font-bold px-3 py-1 rounded-full">
+                      ⭐ Featured
+                    </span>
+                  </div>
+                </div>
+                <div class="p-6">
+                  <div class="flex flex-wrap gap-2 mb-3">
+                    {post.data.tags.slice(0, 2).map(tag => (
+                      <span class="bg-cyan-100 text-cyan-700 text-xs font-semibold px-3 py-1 rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 class="text-2xl font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">
+                    {post.data.title}
+                  </h3>
+                  <p class="text-slate-600 mb-4 line-clamp-2">
+                    {post.data.description}
+                  </p>
+                  <div class="flex items-center justify-between text-sm text-slate-500">
+                    <span>{post.data.author}</span>
+                    <time datetime={post.data.pubDate.toISOString()}>
+                      {new Intl.DateTimeFormat('id-ID', { dateStyle: 'medium' }).format(post.data.pubDate)}
+                    </time>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- All Posts -->
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 mb-6">All Articles</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          {regularPosts.map(post => (
+            <a 
+              href={`/${post.slug}`}
+              class="group bg-white rounded-xl shadow hover:shadow-xl transition-all overflow-hidden border border-slate-100">
+              <div class="aspect-video bg-gradient-to-br from-slate-200 to-slate-300 relative overflow-hidden">
+                <img 
+                  src={post.data.image.url} 
+                  alt={post.data.image.alt}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-6">
+                <div class="flex flex-wrap gap-2 mb-3">
+                  {post.data.tags.slice(0, 2).map(tag => (
+                    <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2 py-1 rounded">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors line-clamp-2">
+                  {post.data.title}
+                </h3>
+                <p class="text-slate-600 text-sm mb-4 line-clamp-2">
+                  {post.data.description}
+                </p>
+                <div class="text-xs text-slate-500">
+                  {new Intl.DateTimeFormat('id-ID', { dateStyle: 'medium' }).format(post.data.pubDate)}
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+</MainLayout>
