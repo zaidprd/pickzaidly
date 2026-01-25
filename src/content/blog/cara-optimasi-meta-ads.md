@@ -2,7 +2,7 @@
 title: "Cara Optimasi Meta Ads untuk Pemula 2026"
 description: "Panduan lengkap optimasi Facebook & Instagram Ads agar ROI maksimal dan budget tidak boros. Cocok untuk pemula yang baru mulai belajar Meta Ads."
 pubDate: 2026-01-25
-author: "Putra Candra Buana"
+author: "zaid"
 # PERBAIKAN: Harus dalam bentuk objek url & alt agar cocok dengan skema
 image:
   url: "../../assets/meta-ads.png" 
@@ -184,10 +184,6 @@ Optimasi Meta Ads bukan magic, tapi sistem! Ikuti step by step:
 8. ✅ A/B testing konsisten
 9. ✅ Pixel tracking aktif
 10. ✅ Strategi seasonal
-
-**Mau belajar lebih dalam dengan praktik langsung?**
-
-🔥 **[Daftar Kelas Meta Ads Ramadhan 2026](/http://lynk.id/zaidprd/3lj58omxpp9e/checkout)** - Hanya Rp 20.000 untuk 10x pertemuan intensif!
 
 ---
 
