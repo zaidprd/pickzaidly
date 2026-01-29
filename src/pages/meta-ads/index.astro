@@ -1,14 +1,24 @@
 ---
 import LandingLayout from '../../layouts/LandingLayout.astro';
 import { Image } from 'astro:assets';
-import mentorImg from '../../assets/meta-ads.png'; 
+// import mentorImg from '../../assets/meta-ads.png'; 
 import LandingFooter from '../components/LandingFooter.astro';
 const waLink = "http://lynk.id/zaidprd/3lj58omxpp9e/checkout";
 ---
 
 <LandingLayout title="Kelas Meta Ads Ramadhan 2026 - Kuasai Facebook & Instagram Ads">
+  
+  <fragment slot="head">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11480179803"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-11480179803');
+    </script>
+  </fragment>
+
   <div class="min-h-screen bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900">
-    
     <section class="container mx-auto px-4 py-16 md:py-24">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-12">
@@ -48,7 +58,7 @@ const waLink = "http://lynk.id/zaidprd/3lj58omxpp9e/checkout";
           <div class="bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm p-8 rounded-2xl border-2 border-green-400/50 mb-8">
             <div class="text-5xl mb-4">💎</div>
             <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Investasi Terbaik untuk Bisnis Anda</h2>
-            </div>
+          </div>
 
           <a href={waLink} id="btn-daftar-bottom" target="_blank" rel="noopener noreferrer" class="inline-block bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold text-xl px-16 py-6 rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 animate-pulse">
             🚀 YA, SAYA MAU DAFTAR SEKARANG!
@@ -56,23 +66,22 @@ const waLink = "http://lynk.id/zaidprd/3lj58omxpp9e/checkout";
         </div>
       </div>
     </section>
-
-    </div>
+  </div>
 </LandingLayout>
 
 <script is:inline>
   function handleButtonClick() {
     if (typeof gtag === 'function') {
+      // Mengirim event konversi saat tombol diklik
       gtag('event', 'conversion', {
           'send_to': 'AW-11480179803/ylvlCKWZiu4bENvIluIq',
           'value': 20000.0,
           'currency': 'IDR'
       });
-      console.log('Event konversi dikirim!');
+      console.log('Event konversi dikirim ke Google Ads!');
     }
   }
 
-  // Menunggu DOM siap
   document.addEventListener('DOMContentLoaded', () => {
     const btnHero = document.getElementById('btn-daftar-hero');
     const btnBottom = document.getElementById('btn-daftar-bottom');
